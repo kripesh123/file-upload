@@ -2074,6 +2074,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
 /* harmony import */ var _file_list_file_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./file-list/file-list.component */ "./src/app/file-list/file-list.component.ts");
+/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
+
 
 
 
@@ -2082,7 +2084,8 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: '', redirectTo: '/files', pathMatch: 'full' },
     { path: 'uploads', component: _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_3__["UploaderComponent"] },
-    { path: 'files', component: _file_list_file_list_component__WEBPACK_IMPORTED_MODULE_4__["FileListComponent"] }
+    { path: 'files', component: _file_list_file_list_component__WEBPACK_IMPORTED_MODULE_4__["FileListComponent"] },
+    { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -2107,7 +2110,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<a *ngIf=\"!isUploadComponent()\" [routerLink]=\"['uploads']\" routerLinkActive=\"active\">Files Upload</a>\n<a *ngIf=\"isUploadComponent()\" [routerLink]=\"['']\" routerLinkActive=\"active\">Files</a>\n<router-outlet></router-outlet>\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ul>\n    <li style=\"float:left;width: 500px;\"><a [routerLink]=\"['']\">Prayag Mobile Center</a></li>\n    <li><a [routerLink]=\"['uploads']\" routerLinkActive=\"active\">File Upload</a></li>\n</ul>\n<router-outlet></router-outlet>\n\n"
 
 /***/ }),
 
@@ -2134,24 +2137,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(router) {
-        this.router = router;
+    function AppComponent() {
     }
-    AppComponent.prototype.isUploadComponent = function () {
-        return this.router.url === '/uploads' ? true : false;
-    };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -2183,6 +2180,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./uploader/uploader.component */ "./src/app/uploader/uploader.component.ts");
 /* harmony import */ var _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./upload-task/upload-task.component */ "./src/app/upload-task/upload-task.component.ts");
 /* harmony import */ var _file_list_file_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./file-list/file-list.component */ "./src/app/file-list/file-list.component.ts");
+/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
+
 
 
 
@@ -2206,7 +2205,8 @@ var AppModule = /** @class */ (function () {
                 _dropzone_directive__WEBPACK_IMPORTED_MODULE_9__["DropzoneDirective"],
                 _uploader_uploader_component__WEBPACK_IMPORTED_MODULE_10__["UploaderComponent"],
                 _upload_task_upload_task_component__WEBPACK_IMPORTED_MODULE_11__["UploadTaskComponent"],
-                _file_list_file_list_component__WEBPACK_IMPORTED_MODULE_12__["FileListComponent"]
+                _file_list_file_list_component__WEBPACK_IMPORTED_MODULE_12__["FileListComponent"],
+                _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_13__["PageNotFoundComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -2352,6 +2352,62 @@ var FileListComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
     ], FileListComponent);
     return FileListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/page-not-found/page-not-found.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/page-not-found/page-not-found.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"page-not-found\">\n   <div class=\"page-not-found\">\n      <div class=\"page-not-found-404\">\n         <h1>4<span>0</span>4</h1>\n         <span style=\"color:#00b7ff\">Page Not Found!</span>\n      </div>\n   </div>   \n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/page-not-found/page-not-found.component.scss":
+/*!**************************************************************!*\
+  !*** ./src/app/page-not-found/page-not-found.component.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2Utbm90LWZvdW5kL3BhZ2Utbm90LWZvdW5kLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/page-not-found/page-not-found.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/page-not-found/page-not-found.component.ts ***!
+  \************************************************************/
+/*! exports provided: PageNotFoundComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageNotFoundComponent", function() { return PageNotFoundComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var PageNotFoundComponent = /** @class */ (function () {
+    function PageNotFoundComponent() {
+    }
+    PageNotFoundComponent.prototype.ngOnInit = function () {
+    };
+    PageNotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-page-not-found',
+            template: __webpack_require__(/*! ./page-not-found.component.html */ "./src/app/page-not-found/page-not-found.component.html"),
+            styles: [__webpack_require__(/*! ./page-not-found.component.scss */ "./src/app/page-not-found/page-not-found.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PageNotFoundComponent);
+    return PageNotFoundComponent;
 }());
 
 
